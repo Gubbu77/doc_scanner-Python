@@ -19,7 +19,7 @@ dialation = cv2.dilate(thresh1, rect_kernal, iterations= 1)
 # find countours
 countours, hierarchy = cv2.findContours(dialation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
-img2 = img.copy()
+duplicate_image = img.copy()
 
 with open('data.txt', "w+") as f:
     f.write("")
@@ -28,12 +28,12 @@ with open('data.txt', "w+") as f:
 for i in countours:
     x, y, w, h = cv2.boundingRect(i)
 
-    rect = cv2.rectangle(img2, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    rect = cv2.rectangle(duplicate_image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-    cropped = img2[y:y + h, x:x + w]
+    croppedimage = duplicate_image[y:y + h, x:x + w]
 
     with open('data.txt', "a") as f:
-        text = pytesseract.image_to_string(cropped)
+        text = pytesseract.image_to_string(croppedimage)
         if text:
             f.write(text)
             f.write('\n')
