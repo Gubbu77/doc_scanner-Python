@@ -1,5 +1,6 @@
-‘es405494
+â€˜es405494
 
+sample txt collected from doc
 
 WIA
 
@@ -26,7 +27,7 @@ $32.99
 1x Watches
 
 
-§299.00
+Â§299.00
 
 1xT-Shirt
 
