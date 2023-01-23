@@ -6,9 +6,9 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 
 image_path = "./bill1.jpg"
 
-img = cv2.imread(image_path)
+image = cv2.imread(image_path)
 
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 ret, thresh1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
 
@@ -19,7 +19,7 @@ dialation = cv2.dilate(thresh1, rect_kernal, iterations= 1)
 # find countours
 countours, hierarchy = cv2.findContours(dialation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
-duplicate_image = img.copy()
+duplicate_image = image.copy()
 
 with open('data.txt', "w+") as f:
     f.write("")
